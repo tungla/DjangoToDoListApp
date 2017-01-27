@@ -18,7 +18,7 @@ from django.contrib import admin
 from DjangoToDoListApp import views
 
 urlpatterns = [
-    url(r'^$', views.index),
+    url(r'todolist/', views.index),
     url(r'^create/', views.create),
     url(r'^admin/', admin.site.urls),
 ]
