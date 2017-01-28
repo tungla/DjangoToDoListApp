@@ -1,39 +1,11 @@
-{# Load the tag library #}
-{% load bootstrap3 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+{% extends 'djangotodolistapp/base.html' %}
 
-{% load staticfiles %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
-
-<html>
-<head>
-    <title>Django To Do List App</title>
-    <link rel="stylesheet" href="{% static 'djangotodolistapp/index.css' %}">
-</head>
-
-<body>
-<header>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Django To Do List App</a>
-        </div>
-      </div><!-- /.container-fluid -->
-    </nav>
-</header>
-
+{% block content %}
 <div class="container">
-<h1>To Do Items</h1>
+<h2>
+    <span>To Do Items</span>
+    <a href="#" class="btn btn-info pull-right" role="button">Add New To Do Item</a>
+</h2>
 <table class="table table-striped" id="todo-list">
   <thead>
     <tr>
@@ -78,6 +50,4 @@
   </ul>
 </nav>
 </div>
-
-</body>
-</html>
+{% endblock %}

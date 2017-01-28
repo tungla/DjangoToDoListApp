@@ -1,0 +1,13 @@
+Django == 1.10
+Faker == 0.7.7
+backports-abc
+certifi == 2016.9.26
+django-bootstrap3 == 8.1.0
+django-seed == 0.1.7
+ipaddress == 1.0.18
+pip == 8.1.1
+pycurl == 7.43.0
+python-dateutil == 2.6.0
+setuptools == 20.10.1
+singledispatch == 3.4.0.3
+six == 1.10.0

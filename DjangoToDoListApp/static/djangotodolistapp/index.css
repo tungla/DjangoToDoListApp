@@ -5,3 +5,7 @@ nav.navbar {
 div.container {
     margin-top: 5%
 }
+
+#create-todoitem {
+    float: right!important;
+}
