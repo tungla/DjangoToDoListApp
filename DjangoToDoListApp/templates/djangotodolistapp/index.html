@@ -1,10 +1,15 @@
 {% extends 'djangotodolistapp/base.html' %}
+{% load staticfiles %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'djangotodolistapp/index.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="container">
 <h2>
     <span>To Do Items</span>
-    <a href="#" class="btn btn-info pull-right" role="button">Add New To Do Item</a>
+    <a href="{% url 'todolist:create' %}" class="btn btn-info pull-right" role="button">Add New To Do Item</a>
 </h2>
 <table class="table table-striped" id="todo-list">
   <thead>

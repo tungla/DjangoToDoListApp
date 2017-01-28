@@ -1,11 +1,3 @@
-nav.navbar {
-    overflow: hidden;
-}
-
-div.container {
-    margin-top: 5%
-}
-
 #create-todoitem {
     float: right!important;
 }

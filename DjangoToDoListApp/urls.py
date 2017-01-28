@@ -20,5 +20,5 @@ from DjangoToDoListApp import views
 app_name = 'todolist'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^create/', views.create),
+    url(r'^create/', views.create, name='create'),
 ]

@@ -11,7 +11,9 @@
 <html>
 <head>
     <title>Django To Do List App</title>
-    <link rel="stylesheet" href="{% static 'djangotodolistapp/index.css' %}">
+    <link rel="stylesheet" href="{% static 'djangotodolistapp/base.css' %}">
+    {% block stylesheet %}
+    {% endblock %}
 </head>
 
 <body>

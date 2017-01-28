@@ -1,8 +1,10 @@
-from django.shortcuts import render, loader
-
-from django.http import HttpResponse
+from django.shortcuts import render, loader, redirect
+from datetime import datetime
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from models import ToDoItem
+from forms import *
+from django.urls import reverse
 
 # Create your views here.
 def index(request):
@@ -49,4 +51,20 @@ def index(request):
                                                             'pageToDisplay': pageToDisplay})
 
 def create(request):
-    return True
+    # If request method is GET, render the form to create new item
+    if request.method == 'GET':
+        createToDoItemForm = ToDoItemCreateForm()
+        return render(request, 'djangotodolistapp/create.html', {'createToDoItemForm': createToDoItemForm})
+    # If request method is POST, get data from user
+    elif request.method == 'POST':
+        createToDoItemForm = ToDoItemCreateForm(request.POST)
+        # If user data is valid, save new to do item object to database
+        if createToDoItemForm.is_valid():
+            # Create new To Do Item and save to database
+            newToDoItem = ToDoItem()
+            newToDoItem.item_text = createToDoItemForm.clean_item_text()
+            newToDoItem.description = createToDoItemForm.clean_description()
+            newToDoItem.created_date = datetime.now()
+            newToDoItem.save()
+            return HttpResponseRedirect(reverse('todolist:index'))
+        return render(request, 'djangotodolistapp/create.html', {'createToDoItemForm': createToDoItemForm})

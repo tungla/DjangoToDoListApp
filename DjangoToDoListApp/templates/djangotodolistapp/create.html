@@ -1,0 +1,21 @@
+{% extends 'djangotodolistapp/base.html' %}
+{% load staticfiles %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'djangotodolistapp/create.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>
+        <span>Add new To Do Items</span>
+    </h2>
+    <form action="{% url 'todolist:create' %}" method="POST">
+        {% csrf_token %}
+        {{ createToDoItemForm.as_p }}
+        <button type="submit" class="save btn btn-info pull-right">Save</button>
+        <a href="{% url 'todolist:index' %}" class="btn btn-danger pull-right" role="button">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}
